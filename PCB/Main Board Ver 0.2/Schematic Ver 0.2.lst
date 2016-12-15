@@ -1,0 +1,44 @@
+eeschema (2013-07-07 BZR 4022)-stable  >> Creation date: 6/29/2016 9:09:11 PM
+#Cmp ( order = Reference )
+| D1         LED         
+| P1         CONN_01X07  
+| P2         CONN_01X07  
+| P3         Motor Controller
+| P4         DIL40       
+| P5         CONN_01X07  
+| P6         5V          
+| P7         DAT         
+| P8         GND         
+| P9         CLK         
+| P10        CONN_01X07  
+| P11        LCD_Interface
+| P13        Start Buttons
+| R1         100 Ohm     
+| R2         10 kOhm     
+| R3         10 kOhm     
+| R4         100 Ohm     
+| R5         100 Ohm     
+#End Cmp
+
+#Cmp ( order = Value )
+| LED          D1        
+| CONN_01X07   P1        
+| CONN_01X07   P2        
+| CONN_01X07   P5        
+| CONN_01X07   P10       
+| DIL40        P4        
+| 5V           P6        
+| DAT          P7        
+| GND          P8        
+| CLK          P9        
+| Start Buttons P13       
+| LCD_Interface P11       
+| Motor Controller P3        
+| 100 Ohm      R1        
+| 10 kOhm      R2        
+| 10 kOhm      R3        
+| 100 Ohm      R4        
+| 100 Ohm      R5        
+#End Cmp
+
+#End List

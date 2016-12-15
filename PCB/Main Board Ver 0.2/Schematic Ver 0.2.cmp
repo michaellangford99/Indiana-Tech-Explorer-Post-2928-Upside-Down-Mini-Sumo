@@ -1,0 +1,164 @@
+Cmp-Mod V01 Created by CvPcb (2013-07-07 BZR 4022)-stable date = 11/28/2016 10:43:03 PM
+
+BeginCmp
+TimeStamp = /576EDD0E;
+Reference = D1;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /577094B3;
+Reference = P1;
+ValeurCmp = CONN_01X07;
+IdModule  = SIL-7;
+EndCmp
+
+BeginCmp
+TimeStamp = /5770957C;
+Reference = P2;
+ValeurCmp = CONN_01X07;
+IdModule  = SIL-7;
+EndCmp
+
+BeginCmp
+TimeStamp = /577476A2;
+Reference = P3;
+ValeurCmp = CONN_10;
+IdModule  = SIL-10;
+EndCmp
+
+BeginCmp
+TimeStamp = /576F725D;
+Reference = P4;
+ValeurCmp = DIL40;
+IdModule  = DIP-40__600;
+EndCmp
+
+BeginCmp
+TimeStamp = /57709658;
+Reference = P5;
+ValeurCmp = CONN_01X07;
+IdModule  = SIL-7;
+EndCmp
+
+BeginCmp
+TimeStamp = /576F5DE5;
+Reference = P6;
+ValeurCmp = 5V;
+IdModule  = SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /576F5E2B;
+Reference = P7;
+ValeurCmp = DAT;
+IdModule  = SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /576F5DA2;
+Reference = P8;
+ValeurCmp = GND;
+IdModule  = SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /576F5D4B;
+Reference = P9;
+ValeurCmp = CLK;
+IdModule  = SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /57709756;
+Reference = P10;
+ValeurCmp = CONN_01X07;
+IdModule  = SIL-7;
+EndCmp
+
+BeginCmp
+TimeStamp = /576F2F28;
+Reference = P11;
+ValeurCmp = LCD_Interface;
+IdModule  = SIL-9;
+EndCmp
+
+BeginCmp
+TimeStamp = /57747695;
+Reference = P12;
+ValeurCmp = CONN_10;
+IdModule  = SIL-10;
+EndCmp
+
+BeginCmp
+TimeStamp = /576F464D;
+Reference = P13;
+ValeurCmp = Start Buttons;
+IdModule  = SIL-6;
+EndCmp
+
+BeginCmp
+TimeStamp = /5799805C;
+Reference = P14;
+ValeurCmp = CONN_1;
+IdModule  = 1pin;
+EndCmp
+
+BeginCmp
+TimeStamp = /57998069;
+Reference = P15;
+ValeurCmp = CONN_1;
+IdModule  = 1pin;
+EndCmp
+
+BeginCmp
+TimeStamp = /5799806F;
+Reference = P16;
+ValeurCmp = CONN_1;
+IdModule  = 1pin;
+EndCmp
+
+BeginCmp
+TimeStamp = /57998075;
+Reference = P17;
+ValeurCmp = CONN_1;
+IdModule  = 1pin;
+EndCmp
+
+BeginCmp
+TimeStamp = /576F6449;
+Reference = R1;
+ValeurCmp = 100 Ohm;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /576F6494;
+Reference = R2;
+ValeurCmp = 10 kOhm;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /576F64EB;
+Reference = R3;
+ValeurCmp = 10 kOhm;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /576F7D1F;
+Reference = R4;
+ValeurCmp = 100 Ohm;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /576F4DCF;
+Reference = R5;
+ValeurCmp = 100 Ohm;
+IdModule  = R3;
+EndCmp
+
+EndListe

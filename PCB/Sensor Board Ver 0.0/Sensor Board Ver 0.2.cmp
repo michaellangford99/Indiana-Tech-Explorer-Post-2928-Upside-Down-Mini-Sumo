@@ -1,0 +1,73 @@
+Cmp-Mod V01 Created by CvPcb (2013-07-07 BZR 4022)-stable date = 11/28/2016 9:46:56 PM
+
+BeginCmp
+TimeStamp = /5771361A;
+Reference = D1;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /583CEB5A;
+Reference = D2;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /583CEB70;
+Reference = D3;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /583CEB7F;
+Reference = D4;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /583CEAD4;
+Reference = K1;
+ValeurCmp = IR_R_38.5KHZ;
+IdModule  = SIL-3;
+EndCmp
+
+BeginCmp
+TimeStamp = /583CEAE1;
+Reference = K2;
+ValeurCmp = IR_R_38.5KHZ;
+IdModule  = SIL-3;
+EndCmp
+
+BeginCmp
+TimeStamp = /583CEAE7;
+Reference = K3;
+ValeurCmp = IR_R_38.5KHZ;
+IdModule  = SIL-3;
+EndCmp
+
+BeginCmp
+TimeStamp = /57BE0380;
+Reference = P1;
+ValeurCmp = CONN_7;
+IdModule  = SIL-7;
+EndCmp
+
+BeginCmp
+TimeStamp = /577136A7;
+Reference = R1;
+ValeurCmp = R;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /57BE04C4;
+Reference = R2;
+ValeurCmp = 5K;
+IdModule  = RV2;
+EndCmp
+
+EndListe
