@@ -36,7 +36,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "29 nov 2016"
+Date "22 dec 2016"
 Rev ""
 Comp ""
 Comment1 ""
@@ -607,14 +607,6 @@ F 3 "" H 4200 4850 50  0000 C CNN
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	4400 2600 5200 2600
-Wire Wire Line
-	4400 2700 5200 2700
-Wire Wire Line
-	4400 2800 5200 2800
-Wire Wire Line
-	4400 2900 5200 2900
-Wire Wire Line
 	4400 3000 5200 3000
 Wire Wire Line
 	4400 3100 5200 3100
@@ -878,4 +870,27 @@ F 3 "~" H 4400 4300 60  0000 C CNN
 	1    4400 4300
 	0    1    1    0   
 $EndComp
+$Comp
+L CONN_4 P18
+U 1 1 585B20A8
+P 4750 2750
+F 0 "P18" V 4700 2750 50  0000 C CNN
+F 1 "CONN_4" V 4800 2750 50  0000 C CNN
+F 2 "~" H 4750 2750 60  0000 C CNN
+F 3 "~" H 4750 2750 60  0000 C CNN
+	1    4750 2750
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5100 2600 5200 2600
+Wire Wire Line
+	5200 2700 5100 2700
+Wire Wire Line
+	5100 2800 5200 2800
+Wire Wire Line
+	5200 2900 5100 2900
+NoConn ~ 4400 2600
+NoConn ~ 4400 2700
+NoConn ~ 4400 2800
+NoConn ~ 4400 2900
 $EndSCHEMATC
