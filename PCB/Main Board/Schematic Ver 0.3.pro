@@ -1,5 +1,5 @@
-update=11/28/2016 10:56:36 PM
-last_client=pcbnew
+update=12/22/2016 8:58:29 AM
+last_client=kicad
 [pcbnew]
 version=1
 LastNetListRead=Schematic Ver 0.3.net
@@ -44,3 +44,5 @@ LibName20=smd_ssop_packages
 LibName21=smd_transistors
 LibName22=sockets
 LibName23=valves
+[general]
+version=1
