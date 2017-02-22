@@ -1,0 +1,213 @@
+' {$STAMP BS2}                    '
+' {$PBASIC 2.5}                   '
+'IR_Sensor_Bar_Test_Code          'Pins used:
+'verified to work                 '    IR emitters on 15, 14, 13, 12, and 11
+                                  '    IR receiver on 10
+ir_input VAR Byte                 'five bit input that is displayed on debug terminal
+freqoutpin VAR Word               'variable that determines which pin is used on freqout
+freqoutpin = 15                   '
+irinput VAR Word                  'Variable that freqoutir returns
+pushbuttonstate VAR Bit           '
+ir_input = 16                     '
+variable VAR Word                 '
+variable = -1                      '
+side VAR Word
+rightside CON 0
+leftside CON 1
+M2F CON 0
+M2R CON 1
+M1R CON 2
+M1F CON 3
+Baud CON 84
+SO PIN 1
+RST PIN 2
+LOW RST
+PAUSE 10
+HIGH RST
+PAUSE 10                                  '
+push VAR Word
+
+start_routines:
+push = IN8
+BRANCH push, [start_routines, adjust]
+
+adjust:
+variable = variable + 1
+BRANCH variable, [zero, one, two, three, four, five, six, seven]
+zero:
+LOW 0
+LOW 3
+LOW 4
+GOTO check
+one:
+HIGH 1
+LOW 3
+LOW 4
+GOTO check
+two:
+LOW 0
+HIGH 3
+LOW 4
+GOTO check
+three:
+HIGH 1
+HIGH 3
+LOW 4
+GOTO check
+four:
+LOW 1
+LOW 3
+HIGH 4
+GOTO check
+five:
+HIGH 1
+LOW 3
+HIGH 4
+GOTO check
+six:
+LOW 1
+HIGH 3
+HIGH 4
+GOTO check
+seven:
+HIGH 1
+HIGH 3
+HIGH 4
+GOTO check
+
+check:
+PAUSE 800
+push = IN8
+BRANCH push, [routine, start_routines]
+                   '
+routine:
+BRANCH variable, [rone, rtwo, rthree, rfour, rfive, rsix, rseven]
+
+rone:
+SEROUT 1, baud, [M1F, 127]
+SEROUT 1, baud, [M2F, 127]
+PAUSE 2000
+GOTO main
+rtwo:
+GOTO main
+rthree:
+GOTO main
+rfour:
+GOTO main
+rfive:
+GOTO main
+rsix:
+GOTO main
+rseven:
+GOTO main
+                                  '
+
+
+
+
+
+
+
+
+                                  Main:                             '
+FREQOUT 15, 1, 38500                   'freqout pin 15
+ir_input.BIT0 = IN10           'register the input
+FREQOUT 14, 1, 38500                   'freqout pin 14
+ir_input.BIT1 = IN10           'register the input
+FREQOUT 13, 1, 38500                   'freqout pin 13
+ir_input.BIT2 = IN10           'register the input
+FREQOUT 12, 1, 38500                   'freqout pin 12
+ir_input.BIT3 = IN10           'register the input
+FREQOUT 11, 1, 38500                   'freqout pin 11
+ir_input.BIT4 = IN10           'register the input
+
+BRANCH ir_input, [charge, slightright, charge, mediumright, charge, charge, charge,
+right, charge, charge, charge, mediumright, charge, charge, charge, hardright,
+slightleft, charge, slightleft, right, slightleft, charge, slightleft, right, mediumleft,
+ mediumleft, mediumleft, charge, left, left, hardleft, search]
+'[00000, 10000, 01000, 11000, 00100, 10100, 01100, 11100, 00010,
+' 10010, 01010, 11010, 00110, 10110, 01110, 11110, 00001, 10001,
+' 01001, 11001, 00101, 10101, 01101, 11101, 00011,
+' 10011, 01011, 11011, 00111, 10111, 01111, 11111]
+GOTO Main                         'return to top
+                                  '
+charge:
+'DEBUG HOME, BIN ir_input, " charge     "
+SEROUT 1, Baud, [M1F, 127]
+SEROUT 1, Baud, [M2F, 127]
+GOTO main
+slightright:
+'DEBUG HOME, BIN ir_input, " slightright"
+SEROUT 1, Baud, [M1F, 127]
+SEROUT 1, Baud, [M2F, 100]
+side = rightside
+GOTO main
+mediumright:
+'DEBUG HOME, BIN ir_input, " mediumright"
+SEROUT 1, Baud, [M1F, 127]
+SEROUT 1, Baud, [M2F, 80]
+side = rightside
+GOTO main
+right:
+'DEBUG HOME, BIN ir_input, " right      "
+SEROUT 1, Baud, [M1F, 127]
+SEROUT 1, Baud, [m2F, 50]
+side = rightside
+GOTO main
+hardright:
+'DEBUG HOME, BIN ir_input, " hardright  "
+SEROUT 1, Baud, [M1F, 127]
+SEROUT 1, Baud, [M2R, 50]
+side = rightside
+GOTO main
+left:
+'DEBUG HOME, BIN ir_input, " left       "
+SEROUT 1, Baud, [M1F, 70]
+SEROUT 1, Baud, [M2F, 127]
+side = leftside
+GOTO main
+mediumleft:
+'DEBUG HOME, BIN ir_input, " mediumleft "
+SEROUT 1, Baud, [M1F, 80]
+SEROUT 1, Baud, [M2F, 127]
+side = leftside
+GOTO main
+hardleft:
+'DEBUG HOME, BIN ir_input, " hardleft   "
+SEROUT 1, Baud, [M2R, 50]
+SEROUT 1, Baud, [M2F, 127]
+side = leftside
+GOTO main
+slightleft:
+'DEBUG HOME, BIN ir_input, " slightleft "
+SEROUT 1, Baud, [M1F, 100]
+SEROUT 1, Baud, [M2F, 127]
+side = leftside
+GOTO main
+search:
+IF side = rightside THEN GOTO searchright
+IF side = leftside THEN GOTO searchleft
+
+searchright:
+SEROUT 1, Baud, [M1F, 127]
+SEROUT 1, Baud, [M2R, 127]
+'DEBUG HOME, BIN ir_input, " search    "
+GOTO main
+
+searchleft:
+SEROUT 1, Baud, [M1R, 127]
+SEROUT 1, Baud, [M2F, 127]
+'DEBUG HOME, BIN ir_input, " search     "
+GOTO main
+
+killswitch:
+pushbuttonstate = IN8
+IF pushbuttonstate = 1 THEN
+      PAUSE 300
+      pushbuttonstate = IN8
+      IF pushbuttonstate = 1 THEN
+                         SEROUT 1, Baud, [M1F, 0]
+                         SEROUT 1, Baud, [M2F, 0]
+      ENDIF
+ENDIF
+RETURN
