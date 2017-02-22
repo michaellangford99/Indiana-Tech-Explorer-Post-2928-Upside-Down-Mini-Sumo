@@ -15,8 +15,10 @@ CON
   _xinfreq = 5_000_000
   
 {{
-  motors_right = x
-  motors_lleft = y
+  motors_right_forward = x1
+  motors_right_backward = x2
+  motors_left_forward = y1
+  motors_left_backward = y2
 }}
 
   mr1=8
