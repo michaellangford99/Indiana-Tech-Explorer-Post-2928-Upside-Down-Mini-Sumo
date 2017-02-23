@@ -1,0 +1,11 @@
+mini-sumo action items:
+
+purchase buttons : https://www.jameco.com/z/PBS-10B-SPST-OFF-ON-Pushbutton-Switch-Round-Plunger-3-Amp-125-VAC_164639.html
+send final print to Mr. haberly
+purchase LCDs
+figure out power switch mounting
+get yourself on motor controller list
+get parts for sensor bars
+finish wheels
+print wheels
+
