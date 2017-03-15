@@ -1,0 +1,44 @@
+' {$STAMP BS2}                    '
+' {$PBASIC 2.5}                   '
+'IR_Sensor_Bar_Test_Code          'Pins used:
+'verified to work                 '    IR emitters on 15, 14, 13, 12, and 11
+                                  '    IR receiver on 10
+ir_input VAR Byte                 'five bit input that is displayed on debug terminal
+freqoutpin VAR Word               'variable that determines which pin is used on freqout
+freqoutpin = 15                   '
+irinput VAR Word                  'Variable that freqoutir returns
+pushbuttonstate VAR Bit
+ir_input = 16
+variable VAR Word
+variable = 0
+start:
+DO UNTIL pushbuttonstate = 1
+pushbuttonstate = IN9
+DEBUG HOME, DEC variable
+LOOP
+PAUSE 500
+variable = variable + 1
+pushbuttonstate = IN9
+IF pushbuttonstate = 1 THEN GOTO Main
+GOTO start
+
+Main:                             '
+GOSUB freqoutir                   'freqout pin 15
+ir_input.BIT0 = irinput           'register the input
+GOSUB freqoutir                   'freqout pin 14
+ir_input.BIT1 = irinput           'register the input
+GOSUB freqoutir                   'freqout pin 13
+ir_input.BIT2 = irinput           'register the input
+GOSUB freqoutir                   'freqout pin 12
+ir_input.BIT3 = irinput           'register the input
+GOSUB freqoutir                   'freqout pin 11
+ir_input.BIT4 = irinput           'register the input
+DEBUG HOME, BIN ir_input, "     " 'display the input in the debug terminal
+freqoutpin = 15                   'reset the pin to be used on the next iteration
+GOTO Main                         'return to top
+                                  '
+freqoutir:                        'Subroutine that emits a 38500 hz frequency
+  FREQOUT freqoutpin, 1, 38500    'on the specified pin
+  irinput = IN10                  'register the input
+  freqoutpin = freqoutpin - 1     'reduce the pin number for the next iteration
+RETURN                            'return to routine that called subroutine
