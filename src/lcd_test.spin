@@ -11,7 +11,7 @@ Var
 long x  
 PUB Main
             
-  lcd.init(12, 2400, 4)
+  lcd.init(25, 2400, 4)
   lcd.cls
 
   lcd.str(string("MiniSumo"))
