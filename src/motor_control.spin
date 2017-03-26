@@ -9,12 +9,13 @@ CON
         
         
 VAR
-   long stack[200], s1, s2
+   long stack[500], s1, s2, d1, d2
    
 OBJ
     serial : "FUllDuplexSerial"
+    
 PUB Start
-   serial.Start(0, serout, %0000, baud)
+   serial.Start(31, serout, %0000, baud)
 
    dira[reset]~~
    outa[reset] := 0
@@ -24,29 +25,35 @@ PUB Start
    outa[reset] := 1
 
    waitcnt(clkfreq/100+cnt)
+   
    cognew(Motors, @stack)
 
 PUB Motors
 
 repeat
-
+    'waitcnt(clkfreq/100+cnt)
     'motor 1
-    if s1 >= 0
-        serial.tx(0)
-        serial.tx(s1)
-    if s1 < 0
-        serial.tx(1)
-        serial.tx(-s1)
-
+    serial.tx(d1)
+    serial.tx(s1)       
+    'waitcnt(clkfreq/100+cnt)
     'motor 2
-    if s2 >= 0
-        serial.tx(2)
-        serial.tx(s2)
-    if s2 < 0
-        serial.tx(3)
-        serial.tx(-s2)
-
+    serial.tx(d2)
+    serial.tx(s2)
+    
 PUB Set(sp1, sp2)
 
-  s1 := sp1
-  s2 := sp2
+ sp1 := -sp1
+
+ if sp1 > -1
+   s1 := sp1
+   d1 := 0
+ else
+   s1 := -sp1
+   d1 := 1
+
+ if sp2 > -1
+   s2 := sp2
+   d2 := 2
+ else
+   s2 := -sp2
+   d2 := 3
