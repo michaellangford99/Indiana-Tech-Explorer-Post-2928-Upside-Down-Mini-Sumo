@@ -11,7 +11,7 @@ OBJ
 PUB Main | x
 
     m.start
-
+   
    repeat x from 0 to 127
     m.set(x,x)
     waitcnt(clkfreq/50+cnt)
@@ -28,9 +28,9 @@ PUB Main | x
     m.set(x,x)
     waitcnt(clkfreq/50+cnt)
 
-
+   
    repeat
-
+    m.set(0,0)
    
 
      
