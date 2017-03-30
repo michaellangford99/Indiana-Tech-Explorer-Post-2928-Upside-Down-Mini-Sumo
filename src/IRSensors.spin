@@ -7,12 +7,12 @@ VAR
 
 PUB Start(freqpin)
      fpin := freqpin     'save desired freqout pin
-      
+     SqrWave.Freq(0, fpin, 38500) 'freq pin                    
+     dira[fpin]~                  'prepare
+     
 PUB IrDetect(pin1, pin2, pin3)
 
-  SqrWave.Freq(0, fpin, 38000) 'freq pin
-                    
-  dira[fpin]~               'prepare                   
+  dira[fpin]~               'turn freq off                   
   dira[fpin]~~              'freq it out                 
   waitcnt(clkfreq/1000 + cnt)' wait 1 uS              
   state1 := ina[pin1]       'recieve data 1
