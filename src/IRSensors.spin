@@ -10,7 +10,7 @@ PUB Start(freqpin)
       
 PUB IrDetect(pin1, pin2, pin3)
 
-  SqrWave.Freq(0, fpin, 38500) 'freq pin
+  SqrWave.Freq(0, fpin, 38000) 'freq pin
                     
   dira[fpin]~               'prepare                   
   dira[fpin]~~              'freq it out                 
