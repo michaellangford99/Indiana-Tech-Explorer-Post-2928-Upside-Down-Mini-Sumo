@@ -15,11 +15,11 @@ long irfbits[3], irrf
 
 PUB Main
             
-  pst.Start(115_200)
+  'pst.Start(115_200)
   ir.start(8)
   m.start
   repeat
-    pst.home
+    'pst.home
     'pst.dec(9)
     waitcnt(clkfreq/50 + cnt)                                                       
     ir.IrDetect(13,14,15)
@@ -29,9 +29,9 @@ PUB Main
       irfbits[2] := ir.GetIR(3)  << 2                            '= <<<< SENSORS SECTION 
       irrf.byte[0]:=irfbits[0] + irfbits[1] + irfbits[2]
     
-    pst.bin(irrf, 3)
+    'pst.bin(irrf, 3)
 
-    {
+    '{
     case irrf
         %000: m.set(-15, -15)
         %011: m.set(0, -15)
