@@ -13,4 +13,21 @@ CON
     MOTOR_CONTROLLER_RESET  = 6
     MOTOR_CONTROLLER_SEROUT = 7
 
+    F_0 = 13
+    F_1 = 14
+    F_2 = 15
+
+    L_0 = 9
+    L_1 = 10
+    L_2 = 11
+
+    R_0 = 17
+    R_1 = 18
+    R_2 = 19
+
+    B_0 = 21
+    B_1 = 22
+    B_2 = 23
+    
+
 PUB dummy
