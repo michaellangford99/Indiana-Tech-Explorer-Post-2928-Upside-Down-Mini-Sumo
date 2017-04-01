@@ -3,7 +3,7 @@ CON
   _CLKMODE = XTAL1 + PLL16X
   _CLKFREQ = 80_000_000
 
-        num_routines = 4
+  num_routines = 4
 
 VAR
   long up_state, up_last_state
@@ -23,14 +23,14 @@ OBJ
   ir     : "IRSensors"
   pins   : "pin_numbers"
   motors : "motor_control"
-  pst    : "Parallax Serial Terminal"
+  'pst    : "Parallax Serial Terminal"
   lcd    : "Serial_LcdMJL"
   
 PUB Start
 
   'start pst
-  pst.start(115_200)
-  pst.str(string("initializing...", 13))
+  'pst.start(115_200)
+  'pst.str(string("initializing...", 13))
     
   'start LCD
   lcd.start(pins#LCD_PIN, 2400, 2)
@@ -41,7 +41,6 @@ PUB Start
   motors.start
   
   'start IRs
-  
   sensor_cog_id := cognew(sensor_loop, @sensor_stack[200])
   
   'set up pushbuttons and kill switch
@@ -98,6 +97,7 @@ PUB Start
 
   'start routine has been selected, now run start routine
 
+  
   
   Main
 
@@ -164,7 +164,7 @@ pub debug_sensors
     lcd.bin(ir_b, 3)
     
     waitcnt(clkfreq/100 + cnt)
-       
+     {  
     pst.home
     pst.str(string("front: "))
     pst.bin(ir_f, 3)
@@ -181,7 +181,7 @@ pub debug_sensors
     pst.str(string("right: "))
     pst.bin(ir_r, 3)
     pst.newline
-    
+        }
     
 pub Main
 
