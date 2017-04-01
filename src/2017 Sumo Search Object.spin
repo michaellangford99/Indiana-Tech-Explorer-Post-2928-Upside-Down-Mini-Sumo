@@ -21,24 +21,24 @@ OBJ
   pst           : "Parallax Serial Terminal"
 
 PUB init
-
+pst.Start(115_200)
 cognew (Search, @stack)
 
 return
   
 PUB Search
-
+pst.Start(115200)
 repeat
-  Front_Search(1, 2, 3, 4)      'replace these with the sensor constants
-  Back_Search(1, 2, 3, 4)
-  Left_Search(1, 2, 3, 4)
-  Right_Search(1,2,3,4)
-'pst.Start(115200)
-'repeat
-'   pst.clear
-'   binput := get_back
-'   pst.bin(binput, 5)
-'   waitcnt(clkfreq/100 + cnt)
+  Front_Search(13, 14, 15, 8)      'replace these with the sensor constants
+  Back_Search(9, 10, 11, 8)
+  Left_Search(17, 18, 19, 8)
+  Right_Search(21, 22, 23, 8)
+'
+repeat
+   pst.clear
+   binput := get_back
+   pst.bin(binput, 5)
+   waitcnt(clkfreq/100 + cnt)
 
 return
 
