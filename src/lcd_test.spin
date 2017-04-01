@@ -6,12 +6,12 @@ CON
 OBJ
                                 
   lcd         : "Serial_LcdMJL"  
-
+  pins        : "pin_numbers"
 Var
 long x  
 PUB Main
             
-  lcd.start(25, 2400, 2)
+  lcd.start(pins#LCD_PIN, 2400, 2)
   lcd.cls
 
   lcd.str(string("MiniSumo"))
