@@ -21,26 +21,26 @@ OBJ
   pst           : "Parallax Serial Terminal"
 
 PUB init
-pst.Start(115_200)
-cognew (Search, @stack)
 
-return
+cognew(Search, @stack)
+
+repeat
   
-PUB Search
-pst.Start(115200)
+PUB Search      
+pst.Start(115_200)
 repeat
-  Front_Search(13, 14, 15, 8)      'replace these with the sensor constants
-  Back_Search(9, 10, 11, 8)
-  Left_Search(17, 18, 19, 8)
-  Right_Search(21, 22, 23, 8)
-'
-repeat
-   pst.clear
+  pst.clear
    binput := get_back
-   pst.bin(binput, 5)
+   pst.bin(binput, 3)
+
+   Front_Search(13, 14, 15, 8)      'replace these with the sensor constants
+   Back_Search(9, 10, 11, 8)
+   Left_Search(17, 18, 19, 8)
+   Right_Search(21, 22, 23, 8)
+'     
    waitcnt(clkfreq/100 + cnt)
 
-return
+
 
 PUB Front_Search(FReceive0, FReceive1, FReceive2, FTransmit)
 
@@ -56,7 +56,7 @@ PUB Front_Search(FReceive0, FReceive1, FReceive2, FTransmit)
 
     front_input.byte[0] := Fstate2.byte[0] + Fstate1.byte[0] + Fstate0.byte[0]
 
-return
+
 
 PUB Back_Search(BReceive0, BReceive1, BReceive2, BTransmit)
 
@@ -72,7 +72,7 @@ PUB Back_Search(BReceive0, BReceive1, BReceive2, BTransmit)
 
     back_input.byte[0] := Bstate2.byte[0] + Bstate1.byte[0] + Bstate0.byte[0]
 
-return
+
 
 PUB Left_Search(LReceive0, LReceive1, LReceive2, LTransmit)
 
@@ -88,11 +88,11 @@ PUB Left_Search(LReceive0, LReceive1, LReceive2, LTransmit)
 
     left_input.byte[0] := Lstate2.byte[0] + Lstate1.byte[0] + Lstate0.byte[0]
 
-return
+
     
 PUB Right_Search(RReceive0, RReceive1, RReceive2, RTransmit)
 
-repeat 
+ 
     waitcnt(clkfreq/100+cnt)
     Rstate0 := sensor_check(Rreceive0, RTransmit)
     Bstate1 := sensor_check(Rreceive1, RTransmit) 
