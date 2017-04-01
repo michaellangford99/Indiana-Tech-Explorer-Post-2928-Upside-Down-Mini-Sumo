@@ -31,6 +31,3 @@ PUB Main | x
    
    repeat
     m.set(0,0)
-   
-
-     
