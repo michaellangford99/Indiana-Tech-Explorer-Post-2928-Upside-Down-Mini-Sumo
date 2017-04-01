@@ -20,7 +20,7 @@ long rbits[3], ir_r
 PUB Main
             
   pst.Start(115_200)
-  ir.start(8)
+  ir.start(pins#IR_TRANSMITTER)
   m.start
 
   
