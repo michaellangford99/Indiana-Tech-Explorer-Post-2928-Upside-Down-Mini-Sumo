@@ -10,6 +10,9 @@ CON
         
 VAR
    long stack[500], s1, s2, d1, d2
+
+   long add1, add2
+   long array1[10], array2[10]
    
 OBJ
     serial : "FUllDuplexSerial"
@@ -26,34 +29,57 @@ PUB Start
 
    waitcnt(clkfreq/100+cnt)
    
-   cognew(Motors, @stack)
+PUB Set(sp2, sp1)
 
-PUB Motors
-
-repeat
-    'waitcnt(clkfreq/100+cnt)
-    'motor 1
-    serial.tx(d1)
-    serial.tx(s1)       
-    'waitcnt(clkfreq/100+cnt)
-    'motor 2
-    serial.tx(d2)
-    serial.tx(s2)
-    
-PUB Set(sp1, sp2)
+ 'sp2 /=4
+ 'sp1 /=4
 
  sp1 := -sp1
+ sp2 := sp2
 
- if sp1 > -1
-   s1 := sp1
+ array1[9] := array1[8]
+ array1[8] := array1[7]
+ array1[7] := array1[6]
+ array1[6] := array1[5]
+ array1[5] := array1[4]
+ array1[4] := array1[3]
+ array1[3] := array1[2]
+ array1[2] := array1[1]
+ array1[1] := array1[0]
+ array1[0] := sp1   
+
+ array2[9] := array2[8]
+ array2[8] := array2[7]
+ array2[7] := array2[6]
+ array2[6] := array2[5]
+ array2[5] := array2[4]
+ array2[4] := array2[3]
+ array2[3] := array2[2]
+ array2[2] := array2[1]
+ array2[1] := array2[0]
+ array2[0] := sp2 
+
+ add1 := (array1[0]+array1[1]+array1[2]+array1[3]+array1[4]+array1[5]+array1[6]+array1[7]+array1[8]+array1[9])/10
+ add2 := (array2[0]+array2[1]+array2[2]+array2[3]+array2[4]+array2[5]+array2[6]+array2[7]+array2[8]+array2[9])/10
+ 
+ if add1 > -1
+   s1 := add1
    d1 := 0
  else
-   s1 := -sp1
+   s1 := -add1
    d1 := 1
 
- if sp2 > -1
-   s2 := sp2
+ if add2 > -1
+   s2 := add2
    d2 := 2
  else
-   s2 := -sp2
+   s2 := -add2
    d2 := 3
+
+ serial.tx(d1)
+ serial.tx(s1)       
+ waitcnt(clkfreq/100+cnt)
+ 'motor 2
+ serial.tx(d2)
+ serial.tx(s2)
+ 
